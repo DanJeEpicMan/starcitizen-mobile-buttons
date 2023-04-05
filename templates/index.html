@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.box{
+  position: relative;
+  width: 150px;
+  height: 30px;
+  border: 0px solid red;
+}
+
+.boxb{
+  position: relative;
+  width: 10px;
+  height: 25px;
+  border: 0px solid red;
+}
+
+.boxs{
+  position: relative;
+  width: 5px;
+  height: 25px;
+  border: 0px solid red;
+}
+
+.box12{
+  position: relative;
+  width: 150px;
+  height: 50px;
+  border: 2px solid #090b0a;
+}
+
+.box12::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: -10px;
+  right: -10px;
+  bottom: -7px;
+  border: 3px solid #6a8893;
+}
+
+.box2{
+  position: relative;
+  width: 170px;
+  height: 50px;
+  border: 0px solid red;
+}
+
+.box2::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: -13px;
+  right: -13px;
+  bottom: -13px;
+  border: 3px solid #6a8893;
+}
+
+.marg{
+  position: relative;
+  width: 1px;
+  height: 1px;
+  border: 0px solid red;
+}
+
+.txt{
+  width: 50px;
+  height: 50px;
+}
+  
+.plus{
+  position: absolute;
+  top: -3px;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  border: 0px solid #73AD21;
+}
+
+.net{
+  text-align: center;
+  color: red;
+  top: 0;
+  left: 100;
+  width: 50px;
+  height: 50px;
+  color: red;
+}
+
+.min{
+  position: absolute;
+  top: -3px;
+  right: 100;
+  width: 50px;
+  height: 50px;
+  border: 0px solid #73AD21;
+}
+  
+.row-one {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+  
+body {
+   background-image: url('/static/backround.png');
+   background-color: #cccccc;
+}
+.square-B-button {
+  width: 50px;
+  height: 50px;
+  background: rgb(255,255,255);
+  background: radial-gradient(rgba(255,255,255,1) 0%, rgba(146, 162, 255, 1) 100%);
+  border: none;
+  outline: none;
+  position: relative;
+  margin: auto;
+}
+
+.square-B-button:active {
+  transform: scale(0.95);
+}
+  
+.square-B-button::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid #738DFF;
+}
+  
+.square-R-button {
+  width: 50px;
+  height: 50px;
+  background: rgb(252,178,191);
+  background: radial-gradient(rgba(252,178,191,1) 0%, rgba(255,90,118,1) 100%);
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+.square-R-button:active {
+  transform: scale(0.95);
+}
+  
+.square-R-button::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid #ff4363;
+}
+
+.square-Y-button {
+  width: 25px;
+  height: 25px;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(rgb(255, 255, 255) 0%, rgb(217, 255, 0) 100%);
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+.square-Y-button:active {
+  transform: scale(0.95);
+}
+  
+.square-Y-button::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid #bbff00;
+}
+
+.square-G-button {
+  width: 25px;
+  height: 25px;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(rgb(255, 255, 255) 0%, rgb(0, 255, 64) 100%);
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+.square-G-button:active {
+  transform: scale(0.95);
+}
+  
+.square-G-button::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid #00ff62;
+}
+
+
+.parent {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(4, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.div1 { grid-area: 1 / 1 / 2 / 6; }
+.div2 { grid-area: 2 / 1 / 3 / 6; }
+.div3 { grid-area: 3 / 1 / 4 / 3; }
+.div4 { grid-area: 3 / 4 / 4 / 6; }
+.div5 { grid-area: 4 / 1 / 5 / 3; }
+.div6 { grid-area: 4 / 4 / 5 / 6; }
+
+.parent2 {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(3, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.div21 { grid-area: 1 / 1 / 2 / 6; }
+.div22 { grid-area: 2 / 1 / 3 / 2; }
+.div23 { grid-area: 2 / 2 / 3 / 5; }
+.div24 { grid-area: 2 / 5 / 3 / 6; }
+.div25 { grid-area: 3 / 1 / 4 / 6; } 
+
+.parent3 {
+display: grid;
+grid-template-columns: repeat(8, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.div31 { grid-area: 1 / 1 / 2 / 2; }
+.div32 { grid-area: 1 / 2 / 2 / 3; }
+.div33 { grid-area: 1 / 3 / 2 / 4; }
+.div34 { grid-area: 1 / 4 / 2 / 5; }
+.div35 { grid-area: 1 / 5 / 2 / 6; }
+.div36 { grid-area: 1 / 6 / 2 / 7; }
+.div37 { grid-area: 1 / 7 / 2 / 8; }
+.div38 { grid-area: 1 / 8 / 2 / 9; }
+
+.parent4 {
+display: grid;
+grid-template-columns: repeat(8, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.div41 { grid-area: 1 / 1 / 2 / 2; }
+.div42 { grid-area: 1 / 2 / 2 / 3; }
+.div43 { grid-area: 1 / 3 / 2 / 4; }
+.div44 { grid-area: 1 / 4 / 2 / 5; }
+.div45 { grid-area: 1 / 5 / 2 / 6; }
+.div46 { grid-area: 1 / 6 / 2 / 7; }
+.div47 { grid-area: 1 / 7 / 2 / 8; }
+.div48 { grid-area: 1 / 8 / 2 / 9; }
+
+  
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+      background-color:#2196F3
+  }
+  
+  input:focus + .slider {
+      box-shadow: 0px 0px 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+      -webkit-transform:translateX(26px);
+      -ms-transform:translateX(26px);
+      transform:translateX(26px)
+  }
+
+/* Rounded sliders */
+.slider.round {
+    border-radius:34px
+}
+
+.slider.round:before {
+    border-radius:50%
+}
+</style>
+<script>
+function sendSwitchValue(switchValue) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.send(encodeURI('switch=' + switchValue));
+}
+</script>
+</head>
+<body>
+<!--
+<div class="parent">
+  <div class="div11">
+    <form method="post">
+        <label class="switch">
+            <input type="checkbox" name="switch" value="Switch 1" onclick="sendSwitchValue(this.value)">
+            <span class="slider"></span>
+        </label> Unlock Doors<br><br>
+ </div>
+  <div class="div12">
+    <label class="switch">
+        <input type="checkbox" name="switch" value="Switch 2" onclick="sendSwitchValue(this.value)">
+        <span class="slider"></span>
+    </label> Power<br><br>
+ </div>
+  -->
+  <div class="parent">
+  <div class="div1"> 
+      <div style="margin-top: 10px;">
+         <div class="button-container">
+            <button type="button", value="Call" class="square-B-button" onclick="sendSwitchValue(this.value)">Call</button>
+            <button type="button", value="Plan TO" class="square-B-button" onclick="sendSwitchValue(this.value)">Plan TO</button>
+            <button type="button", value="Stat TO" class="square-B-button" onclick="sendSwitchValue(this.value)">Stat TO</button>
+            <button type="button", value="Auto LD" class="square-B-button" onclick="sendSwitchValue(this.value)">Auto LD</button>
+            <button type="button", value="180 Turn" class="square-B-button" onclick="sendSwitchValue(this.value)">180 Turn</button>
+         </div>    
+      </div> 
+  </div>
+
+  <div class="div2"> 
+      <div style="margin-top: 35px;">
+         <div class="button-container">
+            <button type="button", value="Max spd" class="square-B-button" onclick="sendSwitchValue(this.value)">Max spd</button>
+            <button type="button", value="Scr Dwn" class="square-B-button" onclick="sendSwitchValue(this.value)">Max Tru</button>
+            <button type="button", value="QU Calc" class="square-B-button" onclick="sendSwitchValue(this.value)">QU Calc</button>
+         </div>    
+      </div>  
+  </div>
+
+  <div class="div3">
+      <div style="margin-top: 60px;">
+         <div class="button-container">
+            <div class="box">
+               <div class="plus">
+                  <button type="button", value="Att" class="square-R-button" onclick="sendSwitchValue(this.value)">Next</button>
+               </div>
+               <div style="text-align: center; color: rgb(255, 80, 80);">
+                  <p>Att</p>
+               </div>
+               <div class="min">
+                  <button type="button", value="Att-" class="square-R-button" onclick="sendSwitchValue(this.value)">Prev</button>
+               </div>
+            </div>  
+         </div>  
+      </div>  
+  </div>
+  <div class="div4">
+   <div style="margin-top: 60px;">
+      <div class="button-container">
+         <div class="box">
+            <div class="plus">
+               <button type="button", value="Host" class="square-R-button" onclick="sendSwitchValue(this.value)">Next</button>
+            </div>
+            <div style="text-align: center; color: rgb(255, 80, 80);">
+               <p>Host</p>
+            </div>
+            <div class="min">
+               <button type="button", value="Host-" class="square-R-button" onclick="sendSwitchValue(this.value)">Prev</button>
+            </div>
+         </div>  
+      </div>  
+   </div>  
+  </div>
+  <div class="div5"> 
+   <div style="margin-top: 57px;">
+      <div class="button-container">
+         <div class="box">
+            <div class="plus">
+               <button type="button", value="Frnd" class="square-R-button" onclick="sendSwitchValue(this.value)">Next</button>
+            </div>
+            <div style="text-align: center; color: rgb(255, 80, 80);">
+               <p>Frnd</p>
+            </div>
+            <div class="min">
+               <button type="button", value="Frnd-" class="square-R-button" onclick="sendSwitchValue(this.value)">Prev</button>
+            </div>
+         </div>  
+      </div>  
+   </div>  
+  </div>
+  <div class="div6"> 
+   <div style="margin-top: 57px;">
+      <div class="button-container">
+         <div class="box">
+            <div class="plus">
+               <button type="button", value="All" class="square-R-button" onclick="sendSwitchValue(this.value)">Next</button>
+            </div>
+            <div style="text-align: center; color: rgb(255, 80, 80);">
+               <p>All</p>
+            </div>
+            <div class="min">
+               <button type="button", value="All-" class="square-R-button" onclick="sendSwitchValue(this.value)">Prev</button>
+            </div>
+         </div>  
+      </div>  
+   </div>  
+  </div>
+</div>
+      
+<div class="parent2">
+   <div class="div21">
+      <div style="margin-top: 75px;">
+         <div class="button-container">
+            <button type="button", value="Pin" class="square-B-button" onclick="sendSwitchValue(this.value)">Pin</button>
+            <button type="button", value="Hail" class="square-B-button" onclick="sendSwitchValue(this.value)">Hail</button>
+            <button type="button", value="UnPin" class="square-B-button" onclick="sendSwitchValue(this.value)">Un Pin</button>
+         </div>  
+      </div>    
+   </div>
+   <div class="div23">
+      <div style="margin-top: 60px;">
+         <div class="button-container"> 
+           <div class="box2">
+               <div class="plus">
+                  <div style="margin-top: 3px;">
+                     <button type="button", value="PingM" class="square-B-button" onclick="sendSwitchValue(this.value)">Mor</button>
+                  </div>
+               </div>
+               <div style="text-align: center;">
+                   <button type="button", value="Ping" class="square-B-button" onclick="sendSwitchValue(this.value)">Ping</button>
+               </div>
+               <div class="min">
+                  <div style="margin-top: 3px;">
+                     <button type="button", value="PingL" class="square-B-button" onclick="sendSwitchValue(this.value)">Les</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="div22">
+      <div style="margin-top: 60px;">
+         <div class="button-container">
+            <button type="button", value="Noise" class="square-R-button" onclick="sendSwitchValue(this.value)">Nos</button>
+         </div>
+      </div>
+   </div>
+   <div class="div24">
+      <div style="margin-top: 60px;">
+         <div class="button-container  ">
+            <button type="button", value="Decoys" class="square-R-button" onclick="sendSwitchValue(this.value)">Dec</button>
+         </div>
+      </div>
+   </div>
+
+   <div class="div25">
+      <div style="margin-top: 53px;">
+         <div class="button-container">
+            <div style="margin-top: 0px;">
+               <div class="box12">
+                  <div class="plus">
+                     <button type="button", value="MisBefore" class="square-B-button" onclick="sendSwitchValue(this.value)">Prv</button>
+                  </div>
+                  <div style="text-align: center; color: rgb(41, 182, 230);">
+                     <p>Type</p>
+                  </div>
+                  <div class="min">
+                     <button type="button", value="MisNext" class="square-B-button" onclick="sendSwitchValue(this.value)">Nxt</button>
+                  </div>
+               </div>
+            </div>
+            <div class="marg">
+            </div>  
+            <div style="margin-top: 0px;">
+               <button type="button", value="Fire" class="square-R-button" onclick="sendSwitchValue(this.value)">Lunch</button>
+            </div>
+            <div class="marg">
+            </div> 
+            <div style="margin-top: 0px;">
+               <div class="box12">
+                  <div class="plus">
+                     <button type="button", value="MisLess" class="square-B-button" onclick="sendSwitchValue(this.value)">Les</button>
+                  </div>
+                  <div style="text-align: center; color: rgb(41, 182, 230);">
+                     <p>Num</p>
+                  </div>
+                  <div class="min">
+                     <button type="button", value="MisMore" class="square-B-button" onclick="sendSwitchValue(this.value)">Mor</button>
+                  </div>
+               </div>
+            </div>
+         </div>  
+      </div>  
+     </div>
+   </div>
+</div>
+</div>
+<!--
+<div class="parent3">
+   <div class="div31"> 
+      <button type="button", value="Hurston" class="square-Y-button" onclick="sendSwitchValue(this.value)">Hrl</button>
+      <div class="button-container">
+         <button type="button", value="Arial" class="square-Y-button" onclick="sendSwitchValue(this.value)">HRL</button>
+         <button type="button", value="Aberdeen" class="square-Y-button" onclick="sendSwitchValue(this.value)">ABR</button>
+         <button type="button", value="Magda" class="square-Y-button" onclick="sendSwitchValue(this.value)">MGD</button>
+         <button type="button", value="Ita" class="square-Y-button" onclick="sendSwitchValue(this.value)">ITA</button>
+      </div>
+   </div>
+   <div class="div32"> 
+      <button type="button", value="ArcCorp" class="square-Y-button" onclick="sendSwitchValue(this.value)">ARC</button>
+      <div class="button-container">
+         <button type="button", value="Lyria" class="square-Y-button" onclick="sendSwitchValue(this.value)">LYA</button>
+         <button type="button", value="Wala" class="square-Y-button" onclick="sendSwitchValue(this.value)">WAL</button>
+      </div>
+   </div>
+   <div class="div33"> 
+      <div style="margin-top: 10px;">
+         <button type="button", value="Crusader" class="square-Y-button" onclick="sendSwitchValue(this.value)">CRU</button>
+         <div class="button-container">
+            <button type="button", value="Callin" class="square-Y-button" onclick="sendSwitchValue(this.value)">CEL</button>
+            <button type="button", value="Daymar" class="square-Y-button" onclick="sendSwitchValue(this.value)">DYM</button>
+            <button type="button", value="Yela" class="square-Y-button" onclick="sendSwitchValue(this.value)">YEL</button>
+         </div>
+      </div>
+   </div>
+   <div class="div34"> 
+      <div style="margin-top: 10px;">
+         <button type="button", value="MicroTech" class="square-Y-button" onclick="sendSwitchValue(this.value)">MIC</button>
+         <div class="button-container">
+            <button type="button", value="Calliope" class="square-Y-button" onclick="sendSwitchValue(this.value)">CAL</button>
+            <button type="button", value="Cilo" class="square-Y-button" onclick="sendSwitchValue(this.value)">CIL</button>
+            <button type="button", value="Euterpe" class="square-Y-button" onclick="sendSwitchValue(this.value)">EUT</button>
+         </div>
+      </div>
+   </div>
+</div> 
+-->
+<!--
+         <button type="button", value="Hurston" class="square-Y-button" onclick="sendSwitchValue(this.value)">Hrl</button>
+         <button type="button", value="Arial" class="square-Y-button" onclick="sendSwitchValue(this.value)">HRL</button>
+         <button type="button", value="Aberdeen" class="square-Y-button" onclick="sendSwitchValue(this.value)">ABR</button>
+         <button type="button", value="Magda" class="square-Y-button" onclick="sendSwitchValue(this.value)">MGD</button>
+         <button type="button", value="Ita" class="square-Y-button" onclick="sendSwitchValue(this.value)">ITA</button>
+
+         <button type="button", value="ArcCorp" class="square-Y-button" onclick="sendSwitchValue(this.value)">ARC</button>
+         <button type="button", value="Lyria" class="square-Y-button" onclick="sendSwitchValue(this.value)">LYA</button>
+         <button type="button", value="Wala" class="square-Y-button" onclick="sendSwitchValue(this.value)">WAL</button>
+
+            <button type="button", value="Crusader" class="square-Y-button" onclick="sendSwitchValue(this.value)">CRU</button>
+            <button type="button", value="Callin" class="square-Y-button" onclick="sendSwitchValue(this.value)">CEL</button>
+            <button type="button", value="Daymar" class="square-Y-button" onclick="sendSwitchValue(this.value)">DYM</button>
+            <button type="button", value="Yela" class="square-Y-button" onclick="sendSwitchValue(this.value)">YEL</button>
+            <button type="button", value="MicroTech" class="square-Y-button" onclick="sendSwitchValue(this.value)">MIC</button>
+            <button type="button", value="Calliope" class="square-Y-button" onclick="sendSwitchValue(this.value)">CAL</button>
+            <button type="button", value="Cilo" class="square-Y-button" onclick="sendSwitchValue(this.value)">CIL</button>
+            <button type="button", value="Euterpe" class="square-Y-button" onclick="sendSwitchValue(this.value)">EUT</button>
+-->
+
+<div class="parent3">
+   <div class="div31">
+      <button type="button", value="Hurston" class="square-G-button" onclick="sendSwitchValue(this.value)">Hrl</button>
+   </div>
+   <div class="div32">
+      <button type="button", value="Arial" class="square-Y-button" onclick="sendSwitchValue(this.value)">HRL</button>
+   </div>
+   <div class="div33">
+      <button type="button", value="Aberdeen" class="square-Y-button" onclick="sendSwitchValue(this.value)">ABR</button>
+   </div>
+   <div class="div34">
+      <button type="button", value="Magda" class="square-Y-button" onclick="sendSwitchValue(this.value)">MGD</button>
+   </div>
+   <div class="div35">
+      <button type="button", value="Ita" class="square-Y-button" onclick="sendSwitchValue(this.value)">ITA</button>
+   </div>
+   <div class="div36">
+      <button type="button", value="ArcCorp" class="square-G-button" onclick="sendSwitchValue(this.value)">ARC</button>
+   </div>
+   <div class="div37">
+      <button type="button", value="Lyria" class="square-Y-button" onclick="sendSwitchValue(this.value)">LYA</button>
+   </div>
+   <div class="div38">
+      <button type="button", value="Wala" class="square-Y-button" onclick="sendSwitchValue(this.value)">WAL</button>
+   </div>
+</div>
+<div class="boxb"></div>
+<div class="parent4">
+   <div class="41">
+      <button type="button", value="Crusader" class="square-G-button" onclick="sendSwitchValue(this.value)">CRU</button>
+   </div>
+   <div class="42">
+      <button type="button", value="Callin" class="square-Y-button" onclick="sendSwitchValue(this.value)">CEL</button>
+   </div>
+   <div class="43">
+      <button type="button", value="Daymar" class="square-Y-button" onclick="sendSwitchValue(this.value)">DYM</button>
+   </div>
+   <div class="44">
+      <button type="button", value="Yela" class="square-Y-button" onclick="sendSwitchValue(this.value)">YEL</button>
+   </div>
+   <div class="45">
+      <button type="button", value="MicroTech" class="square-G-button" onclick="sendSwitchValue(this.value)">MIC</button>
+   </div>
+   <div class="46">
+      <button type="button", value="Calliope" class="square-Y-button" onclick="sendSwitchValue(this.value)">CAL</button>
+   </div>
+   <div class="47">
+      <button type="button", value="Cilo" class="square-Y-button" onclick="sendSwitchValue(this.value)">CIL</button>
+   </div>
+   <div class="48">
+      <button type="button", value="Euterpe" class="square-Y-button" onclick="sendSwitchValue(this.value)">EUT</button>
+   </div>
+</div>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+label{
+    position: absolute;
+}
+.right{
+    top: 0;
+    left: 100%;
+}
+.left{
+    top: 0;
+    right: 100%;
+}
+.top{
+    bottom: 100%;
+    left: 0;
+}
+.bottom{
+    top: 100%;
+    left: 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+      background-color:#2196F3
+  }
+  
+  input:focus + .slider {
+      box-shadow: 0px 0px 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+      -webkit-transform:translateX(26px);
+      -ms-transform:translateX(26px);
+      transform:translateX(26px)
+  }
+
+/* Rounded sliders */
+.slider.round {
+    border-radius:34px
+}
+
+.slider.round:before {
+    border-radius:50%
+}
+
+.grid-container {
+   display: grid;
+   grid-template-columns: auto auto; /* Define two columns */
+   grid-gap:10px; /* Add some space between the grid items */
+}
+
+.grid-item {
+   text-align:center; /* Center the content */
+}
+</style>
+<script>
+function sendSwitchValue(switchValue) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.send(encodeURI('switch=' + switchValue));
+}
+</script>
+</head>
+<body>
+
+<div class="grid-container">
+   <div class="grid-item">
+      <form method="post">
+         <label class="switch">
+            <input type="checkbox" name="switch" value="Switch 1" onclick="sendSwitchValue(this.value)">
+            <span class="slider"></span>
+         </label><br>Unlock Doors
+      </form>
+   </div>
+   <div class="grid-item">
+      <form method="post">
+         <label class="switch">
+            <input type="checkbox" name="switch" value="Switch 2" onclick="sendSwitchValue(this.value)">
+            <span class="slider"></span>
+         </label><br>Power
+      </form>
+   </div>
+</div>
+
+</body>
+</html>
